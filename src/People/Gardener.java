@@ -1,12 +1,10 @@
 package People;
 
-import Rooms.Kitchen;
-
 import java.util.Scanner;
 
-public class Cook implements Person {
+public class Gardener implements Person {
     private String firstname;
-    public Cook(String firstname){
+    public Gardener(String firstname){
         this.firstname = firstname;
     }
 
@@ -14,8 +12,8 @@ public class Cook implements Person {
         return firstname;
     }
 
-    private String[] randomPhrases = {"I love cooking!","What's your favorite food?","I love macrons!",
-    "This house feels so much lighter without Wendy. She was so mean!"};
+    private String[] randomPhrases = {"Ahhh, the aroma of these flowers are so satisfying.","Do you like plants?","I love flowers and plants.",
+            "I wish Wendy was here to see these flowers bloom. She loved the garden so much.","What's your favorite flower?"};
 
     public void chatLoop(String statement){
         System.out.println(getGreeting());
@@ -28,7 +26,7 @@ public class Cook implements Person {
     }
 
     public String getGreeting(){
-        return "Hello, I'm the Cook. How may I help you? If you decide to stop talking anytime at least type the word Bye.";
+        return "Hello, I'm the gardenre. How can I help you? If you decide to stop talking anytime type the word Bye.";
     }
 
     public String getResponse(String statement){
@@ -37,33 +35,29 @@ public class Cook implements Person {
             response = "You've said nothing to me.";
         }
         else if(findKeyword(statement, "Wendy")>=0){
-            response = "Uggh. Wendy was so mean and bossy to me. She would never pay me"+"\n"+
-            "and I always had to work overtime! But I did not murder her.";
+            response = "I miss Wendy. Without her here the gardens have lost their color. *sigh*";
         }
         else if(findKeyword(statement, "seen" )>=0){
-            response = "I have not seen her";
+            response = "The last time I saw Wendy she was very sick. I had asked her to come to the gardens but she couldn't."+"\n"+"So I" +
+                    " bought her some flowers and placed them next to her bed.";
         }
         else if(findKeyword(statement, "murder")>=0){
-            response = "I definitely did not murder her!";
+            response = "You don't think I murdered her do you?";
         }
         else if(findKeyword(statement, "kill Wendy")>=0){
-            response = "I definitely did not kill her!";
+            response = "I would not kill Wendy! Because of her I could do what I love:gardening.";
         }
         else if(findKeyword(statement, "murdered")>=0){
-            response = "I definitely did not murder her!";
+            response = "I would not murder the person that gave me my job.";
         }
         else if(findKeyword(statement, "killed")>=0){
-            response = "I definitely did not kill her!";
+            response = "I did not kill her!";
         }
         else if(findKeyword(statement, "Bye")>=0){
-            response = "Bye. Nice talking to you. You'll be transported back to the very first room you started in.";
-        }
-        else if(findKeyword(statement, "Librarian")>=0){
-            response = "That old woman. I don't know why she's still here even though Wendy's gone. She and Wendy are both"+"\n"+
-            "both the same. Both are insufferable! Shh, don't tell anyone but I think the librarian might have murdered Wendy!";
+            response = "Bye. You can see the gardens anytime.";
         }
         else{
-            int rand = (int)(Math.random()*3);
+            int rand = (int)(Math.random()*4);
             response = randomPhrases[rand];
         }
         return response;

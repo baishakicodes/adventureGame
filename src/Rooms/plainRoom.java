@@ -14,9 +14,7 @@ public class plainRoom {
 
     public void enterRoom(player x){
 
-        System.out.println("You're in Linkenshire Estate. The very estate that your friend, Wendy, used to live in."+"\n"+"But alas she is now dead. Rumor " +
-                "has it that she has been murdered!"+"\n"+"Your mission is to find her murderer. Explore the various rooms in the Estate to find clues."+"\n"+
-                "Good Luck!");
+        System.out.println("You're in a plain old room in the estate. There's nothing interesting to see here.");
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);

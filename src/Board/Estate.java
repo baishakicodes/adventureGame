@@ -1,5 +1,6 @@
 package Board;
 
+import Rooms.WendysRoom;
 import Rooms.plainRoom;
 
 public class Estate {
@@ -25,5 +26,8 @@ public class Estate {
             }
             System.out.println();
         }
+    }
+    public void addRoom(plainRoom room,  int row, int col){
+        Estate[row][col]= room;
     }
 }

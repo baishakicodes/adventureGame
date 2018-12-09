@@ -3,9 +3,11 @@ package Game;
 import Board.Estate;
 import People.Person;
 import People.player;
+import Rooms.WendysRoom;
 import Rooms.plainRoom;
 import Rooms.Kitchen;
 import People.Cook;
+import Rooms.startingRoom;
 
 import java.util.Scanner;
 
@@ -32,7 +34,11 @@ public class Runner {
         int x = (int)(Math.random()*building.length);
         int y = (int)(Math.random()*building.length);
         building[x][y] = new Kitchen(x, y);
-        //building[x][y] = new WinningRoom(x, y);
+        int a = (int)(Math.random()*building.length-1);
+        int b = (int)(Math.random()*building.length-1);
+        building[a][b] = new WendysRoom(x, y);
+        building[0][0] = new startingRoom(0, 0);
+        //building [x][y] = new WinningRoom(x, y);
 
 
         //Setup player 1 and the input scanner
@@ -44,6 +50,17 @@ public class Runner {
 
             System.out.println("Where would you like to move? (Choose N, S, E, W). Or you could type in the name of the murderer now.");
             String move = in.nextLine();
+            if(move.toLowerCase().equals("librarian")){
+                System.out.println("Hmmm... you think so? But she's really nice! Continue the game and see if you can find some clues to help you.");
+            }
+            if(move.toLowerCase().equals("gardener")){
+                System.out.println("I don't know about that. He doesn't seem the type to kill people. Continue the game to find clues.");
+            }
+            if(move.toLowerCase().equals("cook")){
+                System.out.println("Great, you found the murderer! Good job. She'll be put to jail immediately.");
+                gameOn = false;
+                break;
+            }
             if(validMove(move, player1, building))
             {
 
@@ -113,13 +130,9 @@ public class Runner {
                     map[p.getxLoc()][p.getyLoc()-1].enterRoom(p);
                     return true;
                 }
-                else
-                {
+                else {
                     return false;
                 }
-            case "cook":
-                System.out.println("You've found the murderer! She'll be put to jail!");
-                gameOn = false;
             default:
                 break;
 
@@ -130,4 +143,5 @@ public class Runner {
     {
         gameOn = false;
     }
+
 }
