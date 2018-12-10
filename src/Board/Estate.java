@@ -6,9 +6,11 @@ import Rooms.plainRoom;
 public class Estate {
     private plainRoom[][] Estate;
     public Estate(plainRoom[][] Estate){
+
         this.Estate = Estate;
     }
     public Estate(int width){
+
         Estate = new plainRoom[width][width];
     }
     //fills the estate with plain rooms
@@ -19,6 +21,11 @@ public class Estate {
             }
         }
     }
+
+    public plainRoom[][] getEstate() {
+        return Estate;
+    }
+
     public void printEstate(){
         for(plainRoom[] i : Estate){
             for(plainRoom j : i){

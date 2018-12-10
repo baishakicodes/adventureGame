@@ -17,26 +17,26 @@ public class Runner {
     public static boolean gameOn = true;
     public static void main(String[] args) {
 	// write your code here
-        plainRoom[][] building = new plainRoom[5][5];
-
-
-        //Fill the building with normal rooms
-        for (int x = 0; x<building.length; x++)
-        {
-            for (int y = 0; y < building[x].length; y++)
-            {
-                building[x][y] = new plainRoom(x,y);
-            }
-        }
+        //plainRoom[][] building = new plainRoom[5][5];
+        Estate estate = new Estate(5);
+        estate.fillEstate();
+        //fill the building with normal rooms
+        //for (int x = 0; x<building.length; x++)
+        //{
+            //for (int y = 0; y < mansion[x].length; y++)
+            //{
+                //building[x][y] = new plainRoom(x,y);
+           // }
+        //}
 
 
         //Create a random winning room.
-        int x = (int)(Math.random()*building.length);
+        int x = (int)(Math.random()*estate.getEstate().length);
         int y = (int)(Math.random()*building.length);
         building[x][y] = new Kitchen(x, y);
         int a = (int)(Math.random()*building.length-1);
         int b = (int)(Math.random()*building.length-1);
-        building[a][b] = new WendysRoom(x, y);
+        building[x][y] = new WendysRoom(x, y);
         building[0][0] = new startingRoom(0, 0);
         //building [x][y] = new WinningRoom(x, y);
 
@@ -65,6 +65,7 @@ public class Runner {
             {
 
                 System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
+
 
             }
             else {
