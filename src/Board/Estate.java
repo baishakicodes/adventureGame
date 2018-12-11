@@ -1,9 +1,6 @@
 package Board;
 
-import Rooms.Garden;
-import Rooms.Kitchen;
-import Rooms.WendysRoom;
-import Rooms.plainRoom;
+import Rooms.*;
 
 public class Estate {
     private plainRoom[][] Estate;
@@ -26,14 +23,48 @@ public class Estate {
 
     //editing board with new rooms
     public static void edit(plainRoom[][] estate){
+        estate[0][0]= new startingRoom(0,0);
         int x, y =0;
-        int[][] randNums = new int[estate.length][estate.length];
-        int index =0;
-        for(int b =0; b<estate.length;b++){
-            x=(int)(Math.random()*estate.length);
-            y=(int)(Math.random()*estate.length);
-            estate[x][y] = new Kitchen(x, y);
-
+        for(int b=0;b<1; b++){
+            x = (int) (Math.random() * estate.length);
+            y = (int) (Math.random() * estate.length);
+            estate[x][y]=new Kitchen(x, y);
+        }
+        for(int b=0;b<1; b++){
+            x = (int) (Math.random() * estate.length);
+            y = (int) (Math.random() * estate.length);
+            if(estate[x][y]==null) {
+                estate[x][y] = new WendysRoom(x, y);
+            }
+            else{
+                x = (int) (Math.random() * estate.length);
+                y = (int) (Math.random() * estate.length);
+                estate[x][y] = new WendysRoom(x, y);
+            }
+        }
+        for(int b=0;b<1; b++){
+            x = (int) (Math.random() * estate.length);
+            y = (int) (Math.random() * estate.length);
+            if(estate[x][y]==null) {
+                estate[x][y] = new Garden(x, y);
+            }
+            else{
+                x = (int) (Math.random() * estate.length);
+                y = (int) (Math.random() * estate.length);
+                estate[x][y] = new Garden(x, y);
+            }
+        }
+        for(int b=0;b<1; b++){
+            x = (int) (Math.random() * estate.length);
+            y = (int) (Math.random() * estate.length);
+            if(estate[x][y]==null) {
+                estate[x][y] = new Library(x, y);
+            }
+            else{
+                x = (int) (Math.random() * estate.length);
+                y = (int) (Math.random() * estate.length);
+                estate[x][y] = new Library(x, y);
+            }
         }
     }
 
