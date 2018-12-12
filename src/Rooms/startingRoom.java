@@ -21,6 +21,6 @@ public class startingRoom extends plainRoom {
         occupant =  null;
     }
     public String location(){
-        return "x";
+        return "[ Starting Room ]";
     }
 }

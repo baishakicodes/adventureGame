@@ -35,6 +35,6 @@ public class Library extends plainRoom {
         occupant =  null;
     }
     public String location(){
-        return "Library";
+        return "[ Library ]";
     }
 }

@@ -33,6 +33,6 @@ public class Garden extends plainRoom {
         occupant =  null;
     }
     public String location(){
-        return "Garden";
+        return "[ Garden ]";
     }
 }

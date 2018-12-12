@@ -73,16 +73,12 @@ public class Estate {
         return Estate;
     }
 
-    public String printEstate(plainRoom[][] estate, player player1){
-        String str ="";
-        for(int row=0; row<estate.length;row++){
-            for(int col=0; col<estate[row].length;col++) {
-                if ((row == player1.getxLoc()) && (col == player1.getyLoc())) {
-                    str = "x";
-                } else {
-                    str = str + estate[row][col].location();
-                }
+    public void printEstate( ){
+        for(plainRoom[] i: Estate){
+            for(plainRoom j:i){
+                System.out.print(j);
             }
+            System.out.println();
         }
     }
     public void addRoom(plainRoom room,  int row, int col){

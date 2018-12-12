@@ -38,6 +38,6 @@ public class WendysRoom extends plainRoom {
         occupant =  null;
     }
     public String location(){
-        return " Wendy's Room";
+        return "[ Wendy's Room ]";
     }
 }

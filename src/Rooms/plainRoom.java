@@ -2,6 +2,7 @@ package Rooms;
 
 import People.player;
 import com.sun.media.jfxmedia.events.PlayerEvent;
+import Board.Estate;
 
 public class plainRoom {
     player occupant;
@@ -22,7 +23,22 @@ public class plainRoom {
     public void leaveRoom(player x){
         occupant = null;
     }
-    public String location(){
-        return "plain room";
+
+    public  int getxLoc() {
+        return this.xLoc;
+    }
+    public int getyLoc(){
+        return this.yLoc;
+    }
+
+    public String location(Estate estate){
+        for(int i=0; i<estate.getEstate().length;i++){
+            for(int c=0; c<estate.getEstate().length; c++){
+                if(estate.getEstate()[i][c]==estate[plainRoom.getxLoc()][plainRoom.getyLoc()]){
+
+                }
+            }
+            System.out.println();
+        }
     }
 }
