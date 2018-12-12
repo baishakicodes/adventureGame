@@ -20,6 +20,11 @@ public class Runner {
         //plainRoom[][] building = new plainRoom[5][5];
         Estate estate = new Estate(5);
         estate.fillEstate();
+        estate.getEstate()[0][0]=new startingRoom(0,0);
+        estate.edit(estate.getEstate());
+        player player1 = new player("FirstName", 0, 0);
+        estate.getEstate()[0][0].enterRoom(player1);
+
         //fill the building with normal rooms
         //for (int x = 0; x<building.length; x++)
         //{
@@ -31,19 +36,18 @@ public class Runner {
 
 
         //Create a random winning room.
-        int x = (int)(Math.random()*estate.getEstate().length);
-        int y = (int)(Math.random()*building.length);
-        building[x][y] = new Kitchen(x, y);
-        int a = (int)(Math.random()*building.length-1);
-        int b = (int)(Math.random()*building.length-1);
-        building[x][y] = new WendysRoom(x, y);
-        building[0][0] = new startingRoom(0, 0);
+       // int x = (int)(Math.random()*estate.getEstate().length);
+        ///int y = (int)(Math.random()*estate.length);
+        //building[x][y] = new Kitchen(x, y);
+        //int a = (int)(Math.random()*building.length-1);
+        //int b = (int)(Math.random()*building.length-1);
+        //building[x][y] = new WendysRoom(x, y);
+       // building[0][0] = new startingRoom(0, 0);
         //building [x][y] = new WinningRoom(x, y);
 
 
         //Setup player 1 and the input scanner
-        player player1 = new player("FirstName", 0, 0);
-        building[0][0].enterRoom(player1);
+        //building[0][0].enterRoom(player1);
         Scanner in = new Scanner(System.in);
         while(gameOn)
         {
@@ -61,10 +65,11 @@ public class Runner {
                 gameOn = false;
                 break;
             }
-            if(validMove(move, player1, building))
+            if(validMove(move, player1, estate.getEstate()))
             {
 
                 System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
+                estate.printEstate();
 
 
             }

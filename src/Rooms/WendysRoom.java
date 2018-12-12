@@ -34,4 +34,10 @@ public class WendysRoom extends plainRoom {
         }
 
     }
+    public void leaveRoom(player x){
+        occupant =  null;
+    }
+    public String location(){
+        return " Wendy's Room";
+    }
 }

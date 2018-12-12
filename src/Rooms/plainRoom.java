@@ -22,4 +22,7 @@ public class plainRoom {
     public void leaveRoom(player x){
         occupant = null;
     }
+    public String location(){
+        return "plain room";
+    }
 }

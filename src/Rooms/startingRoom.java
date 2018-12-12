@@ -17,4 +17,10 @@ public class startingRoom extends plainRoom {
                 "has it that she has been murdered!"+"\n"+"Your mission is to find her murderer. Explore the various rooms in the Estate to find clues."+"\n"+
                 "Good Luck!");
     }
+    public void leaveRoom(player x){
+        occupant =  null;
+    }
+    public String location(){
+        return "x";
+    }
 }

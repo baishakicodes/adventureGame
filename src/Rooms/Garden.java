@@ -29,4 +29,10 @@ public class Garden extends plainRoom {
                     "You might learn something new!"+"You can always find the kitchen in the same location as last time.");
         }
     }
+    public void leaveRoom(player x){
+        occupant =  null;
+    }
+    public String location(){
+        return "Garden";
+    }
 }
