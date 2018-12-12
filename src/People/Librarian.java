@@ -42,6 +42,9 @@ public class Librarian implements Person {
             response = "The last time I saw Wendy was when she was going to her room after dinner."+"\n"+"She was telling me she was feeling" +
                     " light headed.";
         }
+        else if(findKeyword(statement, "who" )>=0){
+            response = "I think the cook might have killed her";
+        }
         else if(findKeyword(statement, "murder")>=0){
             response = "Oh dear, Why would I murder Wendy?!";
         }
@@ -63,6 +66,12 @@ public class Librarian implements Person {
         }
         else if(findKeyword(statement, "Bye")>=0){
             response = "Bye. It was really nice talking to you dearie. Come by once in a while!";
+        }
+        else if(findKeyword(statement, "Did you")>=0){
+            response =  transformdidYouStatement(statement);
+        }
+        else if(findKeyword(statement, "Who killed")>=0){
+            response = transformWhoKilledStatement(statement);
         }
         else{
             int rand = (int)(Math.random()*3);
@@ -116,5 +125,35 @@ public class Librarian implements Person {
     {
 
         return findKeyword (statement, goal, 0);
+    }
+    private String transformWhoKilledStatement(String statement)
+    {
+        //  Remove the final period, if there is one
+        statement = statement.trim();
+        String lastChar = statement.substring(statement
+                .length() - 1);
+        if (lastChar.equals("."))
+        {
+            statement = statement.substring(0, statement
+                    .length() - 1);
+        }
+        int psn = findKeyword (statement, "Who killed", 0);
+        String restOfStatement = statement.substring(psn + 10).trim();
+        return "I did not kill " + restOfStatement + "!";
+    }
+    private String transformdidYouStatement(String statement)
+    {
+        //  Remove the final period, if there is one
+        statement = statement.trim();
+        String lastChar = statement.substring(statement
+                .length() - 1);
+        if (lastChar.equals("."))
+        {
+            statement = statement.substring(0, statement
+                    .length() - 1);
+        }
+        int psn = findKeyword (statement, "Did you", 0);
+        String restOfStatement = statement.substring(psn + 7).trim();
+        return "I most certainly did not " + restOfStatement + "!";
     }
 }

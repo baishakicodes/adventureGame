@@ -26,7 +26,7 @@ public class Gardener implements Person {
     }
 
     public String getGreeting(){
-        return "Hello, I'm the gardenre. How can I help you? If you decide to stop talking anytime type the word Bye.";
+        return "Hello, I'm the Gardener. How can I help you? If you decide to stop talking anytime type the word Bye.";
     }
 
     public String getResponse(String statement){
@@ -41,11 +41,14 @@ public class Gardener implements Person {
             response = "The last time I saw Wendy she was very sick. I had asked her to come to the gardens but she couldn't."+"\n"+"So I" +
                     " bought her some flowers and placed them next to her bed.";
         }
+        else if(findKeyword(statement, "who" )>=0){
+            response = "I think the cook might have killed her";
+        }
         else if(findKeyword(statement, "murder")>=0){
             response = "You don't think I murdered her do you?";
         }
-        else if(findKeyword(statement, "kill Wendy")>=0){
-            response = "I would not kill Wendy! Because of her I could do what I love:gardening.";
+        else if(findKeyword(statement, "Who killed")>=0){
+            response = transformWhoKilledStatement(statement);
         }
         else if(findKeyword(statement, "murdered")>=0){
             response = "I would not murder the person that gave me my job.";
@@ -55,6 +58,9 @@ public class Gardener implements Person {
         }
         else if(findKeyword(statement, "Bye")>=0){
             response = "Bye. You can see the gardens anytime.";
+        }
+        else if(findKeyword(statement, "Did you")>=0){
+            response =  transformdidYouStatement(statement);
         }
         else{
             int rand = (int)(Math.random()*4);
@@ -108,6 +114,36 @@ public class Gardener implements Person {
     {
 
         return findKeyword (statement, goal, 0);
+    }
+    private String transformWhoKilledStatement(String statement)
+    {
+        //  Remove the final period, if there is one
+        statement = statement.trim();
+        String lastChar = statement.substring(statement
+                .length() - 1);
+        if (lastChar.equals("."))
+        {
+            statement = statement.substring(0, statement
+                    .length() - 1);
+        }
+        int psn = findKeyword (statement, "Who killed", 0);
+        String restOfStatement = statement.substring(psn + 10).trim();
+        return "I did not kill " + restOfStatement + "!";
+    }
+    private String transformdidYouStatement(String statement)
+    {
+        //  Remove the final period, if there is one
+        statement = statement.trim();
+        String lastChar = statement.substring(statement
+                .length() - 1);
+        if (lastChar.equals("."))
+        {
+            statement = statement.substring(0, statement
+                    .length() - 1);
+        }
+        int psn = findKeyword (statement, "Did you", 0);
+        String restOfStatement = statement.substring(psn + 7).trim();
+        return "I most certainly did not " + restOfStatement + "!";
     }
 
 }

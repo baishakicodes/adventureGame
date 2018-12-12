@@ -1,7 +1,6 @@
 package Rooms;
 
 import People.player;
-import Game.Runner;
 
 import java.util.Scanner;
 

@@ -1,6 +1,5 @@
 package Rooms;
 
-import Game.Runner;
 import People.player;
 public class startingRoom extends plainRoom {
 

@@ -23,4 +23,7 @@ public class player implements Person {
     public void setyLoc(int yLoc){
         this.yLoc = yLoc;
     }
+    public String location(){
+        return "[ x ]";
+    }
 }

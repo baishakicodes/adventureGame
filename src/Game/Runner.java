@@ -69,7 +69,7 @@ public class Runner {
             {
 
                 System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
-                estate.printEstate();
+                System.out.println(estate.printEstate(estate.getEstate(), player1));
 
 
             }

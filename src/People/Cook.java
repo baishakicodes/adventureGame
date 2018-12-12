@@ -40,19 +40,22 @@ public class Cook implements Person {
             response = "Uggh. Wendy was so mean and bossy to me. She would never pay me"+"\n"+
             "and I always had to work overtime! But I did not murder her.";
         }
-        else if(findKeyword(statement, "seen" )>=0){
-            response = "I have not seen her";
+        else if(findKeyword(statement, "who" )>=0){
+            response = "I don't know who killed her";
+        }
+        else if(findKeyword(statement, "see" )>=0){
+            response = "I don't remember when I last saw her...";
         }
         else if(findKeyword(statement, "murder")>=0){
             response = "I definitely did not murder her!";
         }
-        else if(findKeyword(statement, "kill Wendy")>=0){
-            response = "I definitely did not kill her!";
+        else if(findKeyword(statement, "Who killed")>=0){
+            response = transformWhoKilledStatement(statement);
         }
         else if(findKeyword(statement, "murdered")>=0){
             response = "I definitely did not murder her!";
         }
-        else if(findKeyword(statement, "killed")>=0){
+        else if(findKeyword(statement, "kill")>=0){
             response = "I definitely did not kill her!";
         }
         else if(findKeyword(statement, "Bye")>=0){
@@ -61,6 +64,9 @@ public class Cook implements Person {
         else if(findKeyword(statement, "Librarian")>=0){
             response = "That old woman. I don't know why she's still here even though Wendy's gone. She and Wendy are both"+"\n"+
             "both the same. Both are insufferable! Shh, don't tell anyone but I think the librarian might have murdered Wendy!";
+        }
+        else if(findKeyword(statement, "Did you")>=0){
+            response =  transformdidYouStatement(statement);
         }
         else{
             int rand = (int)(Math.random()*3);
@@ -114,6 +120,36 @@ public class Cook implements Person {
     {
 
         return findKeyword (statement, goal, 0);
+    }
+    private String transformWhoKilledStatement(String statement)
+    {
+        //  Remove the final period, if there is one
+        statement = statement.trim();
+        String lastChar = statement.substring(statement
+                .length() - 1);
+        if (lastChar.equals("."))
+        {
+            statement = statement.substring(0, statement
+                    .length() - 1);
+        }
+        int psn = findKeyword (statement, "Who killed", 0);
+        String restOfStatement = statement.substring(psn + 10).trim();
+        return "I did not kill " + restOfStatement + "!";
+    }
+    private String transformdidYouStatement(String statement)
+    {
+        //  Remove the final period, if there is one
+        statement = statement.trim();
+        String lastChar = statement.substring(statement
+                .length() - 1);
+        if (lastChar.equals("."))
+        {
+            statement = statement.substring(0, statement
+                    .length() - 1);
+        }
+        int psn = findKeyword (statement, "Did you", 0);
+        String restOfStatement = statement.substring(psn + 7).trim();
+        return "I most certainly did not " + restOfStatement + "!";
     }
 
 }
