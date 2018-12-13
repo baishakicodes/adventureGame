@@ -4,7 +4,7 @@ import People.player;
 public class startingRoom extends plainRoom {
 
     public startingRoom(int x, int y){
-        super(x,y);
+        super(0,0);
     }
 
     @Override

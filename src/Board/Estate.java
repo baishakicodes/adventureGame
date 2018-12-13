@@ -29,30 +29,37 @@ public class Estate {
     public static void edit(plainRoom[][] estate){
         int x, y =0;
         for(int b=0;b<1; b++){
-            x = (int) ((Math.random() * estate.length)+1);
-            y = (int) ((Math.random() * estate.length)+1));
-            estate[x][y]=new Kitchen(x,y);
+            x = (int) (Math.random() * estate.length);
+            y = (int) (Math.random() * estate.length);
+            if(estate[x][y]!=estate[0][0]) {
+                estate[x][y] = new Kitchen(x, y);
+            }
+            else{
+                x = (int) (Math.random() * estate.length-1)+1;
+                y = (int) (Math.random() * estate.length);
+                estate[x][y] = new Kitchen(x, y);
+            }
         }
         for(int b=0;b<1; b++){
-            x = (int) ((Math.random() * estate.length)+1);
-            y = (int) ((Math.random() * estate.length)+1);
-            if(estate[x][y]==null) {
+            x = (int) ((Math.random() * estate.length));
+            y = (int) ((Math.random() * estate.length));
+            if(estate[x][y]!=estate[0][0]) {
                 estate[x][y] = new WendysRoom(x, y);
             }
             else{
-                x = (int) ((Math.random() * estate.length)+1);
-                y = (int) ((Math.random() * estate.length)+1);
+                x = (int) (Math.random() * estate.length-1)+1;
+                y = (int) (Math.random() * estate.length);
                 estate[x][y] = new WendysRoom(x, y);
             }
         }
         for(int b=0;b<1; b++){
-            x = (int) ((Math.random() * estate.length)+1);
-            y = (int) ((Math.random() * estate.length)+1);
-            if(estate[x][y]==null) {
+            x = (int) ((Math.random() * estate.length));
+            y = (int) ((Math.random() * estate.length));
+            if(estate[x][y]!=estate[0][0]) {
                 estate[x][y] = new Garden(x, y);
             }
             else{
-                x = (int) (Math.random() * estate.length);
+                x = (int) (Math.random() * estate.length-1)+1;
                 y = (int) (Math.random() * estate.length);
                 estate[x][y] = new Garden(x, y);
             }
@@ -60,11 +67,11 @@ public class Estate {
         for(int b=0;b<1; b++){
             x = (int) (Math.random() * estate.length);
             y = (int) (Math.random() * estate.length);
-            if(estate[x][y]==null) {
+            if(estate[x][y]!=estate[0][0]) {
                 estate[x][y] = new Library(x, y);
             }
             else{
-                x = (int) (Math.random() * estate.length);
+                x = (int) (Math.random() * estate.length-1)+1;
                 y = (int) (Math.random() * estate.length);
                 estate[x][y] = new Library(x, y);
             }
