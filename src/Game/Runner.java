@@ -61,7 +61,8 @@ public class Runner {
                 System.out.println("I don't know about that. He doesn't seem the type to kill people. Continue the game to find clues.");
             }
             if(move.toLowerCase().equals("cook")){
-                System.out.println("Great, you found the murderer! Good job. She'll be put to jail immediately.");
+                System.out.println("Great, you found the murderer! Good job. She'll be put to jail immediately."+"\n"+
+                        "You are a true hero. You friend Wendy would have been proud!");
                 gameOn = false;
                 break;
             }
@@ -69,7 +70,9 @@ public class Runner {
             {
 
                 System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
-                System.out.println(estate.printEstate(estate.getEstate(), player1));
+                System.out.println("---------------------------------------------------------------------------------");
+                System.out.println("Map:"+"\n"+"\n"+estate.printEstate(estate.getEstate(), player1));
+                System.out.println("---------------------------------------------------------------------------------");
 
 
             }

@@ -13,7 +13,7 @@ public class plainRoom {
 
     public void enterRoom(player x){
 
-        System.out.println("You're in a plain old room in the estate. There's nothing interesting to see here.");
+        System.out.println("\n"+"You're in a plain old room in the estate. There's nothing interesting to see here.");
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);

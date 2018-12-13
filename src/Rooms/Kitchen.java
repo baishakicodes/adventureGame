@@ -28,7 +28,7 @@ public class Kitchen extends plainRoom {
         }
         if(ans.equals("2")){
             System.out.println("You should really talk to the cook."+"\n"+
-                    "You might learn something new! For now you'll be transported to the very first room you started with."+"\n"+"You can always find the kitchen in the same location as last time.");
+                    "You might learn something new! You can always find the kitchen in the same location as last time.");
         }
     }
     public void leaveRoom(player x){

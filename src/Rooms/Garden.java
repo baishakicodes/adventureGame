@@ -26,7 +26,7 @@ public class Garden extends plainRoom {
         }
         if(chatGard.equals("2")){
             System.out.println("You should really talk to the Gardener."+"\n"+
-                    "You might learn something new!"+"You can always find the kitchen in the same location as last time.");
+                    "You might learn something new!"+"You can always find the Garden in the same location as last time.");
         }
     }
     public void leaveRoom(player x){

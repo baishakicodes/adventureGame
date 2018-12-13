@@ -18,7 +18,8 @@ public class Cook implements Person {
     "This house feels so much lighter without Wendy. She was so mean!"};
 
     public void chatLoop(String statement){
-        System.out.println(getGreeting());
+        int ranGreet = (int)(Math.random());
+        System.out.println(getGreeting(ranGreet));
         Scanner in = new Scanner(System.in);
 
         while(!(statement.equals("Bye"))){
@@ -31,6 +32,16 @@ public class Cook implements Person {
         return "Hello, I'm the Cook. How may I help you? If you decide to stop talking anytime at least type the word Bye.";
     }
 
+    //overloaded method
+    public String getGreeting(int greetingNum){
+        if(greetingNum<=50) {
+            return "Hello, I'm the Cook. How may I help you? If you decide to stop talking anytime at least type the word Bye.";
+        }
+        else{
+            return "Hey there. I'm the cook. What would you like to eat? If you decide to leave type the word bye!";
+        }
+    }
+
     public String getResponse(String statement){
         String response = "";
         if(statement.length()==0){
@@ -41,7 +52,7 @@ public class Cook implements Person {
             "and I always had to work overtime! But I did not murder her.";
         }
         else if(findKeyword(statement, "who" )>=0){
-            response = "I don't know who killed her";
+            response = "I don't know who killed her.";
         }
         else if(findKeyword(statement, "see" )>=0){
             response = "I don't remember when I last saw her...";
@@ -59,17 +70,17 @@ public class Cook implements Person {
             response = "I definitely did not kill her!";
         }
         else if(findKeyword(statement, "Bye")>=0){
-            response = "Bye. Nice talking to you. You'll be transported back to the very first room you started in.";
+            response = "Bye. Nice talking to you. You'll be transported to very first room you started in.";
         }
         else if(findKeyword(statement, "Librarian")>=0){
             response = "That old woman. I don't know why she's still here even though Wendy's gone. She and Wendy are both"+"\n"+
-            "both the same. Both are insufferable! Shh, don't tell anyone but I think the librarian might have murdered Wendy!";
+            " the same. Both are insufferable! Shh, don't tell anyone but I think the librarian might have murdered Wendy!";
         }
         else if(findKeyword(statement, "Did you")>=0){
             response =  transformdidYouStatement(statement);
         }
         else{
-            int rand = (int)(Math.random()*3);
+            int rand = (int)(Math.random());
             response = randomPhrases[rand];
         }
         return response;
