@@ -12,14 +12,17 @@ public class Gardener implements Person {
         return firstname;
     }
 
+    //list of phrases that would show if the user typed anything that I didn't specificaly look for
     private String[] randomPhrases = {"Ahhh, the aroma of these flowers are so satisfying.","Do you like plants?","I love flowers and plants.",
             "I wish Wendy was here to see these flowers bloom. She loved the garden so much.","What's your favorite flower?"};
 
+    // This entire code was taken from the chatloop lab. It was needed so that the player was able to
+    //to talk to the people and get clues.
     public void chatLoop(String statement){
         System.out.println(getGreeting());
         Scanner in = new Scanner(System.in);
 
-        while(!(statement.equals("Bye"))){
+        while(!(statement.toLowerCase().equals("bye"))){
             statement = in.nextLine();
             System.out.println(getResponse(statement));
         }
@@ -34,6 +37,12 @@ public class Gardener implements Person {
         if(statement.length()==0){
             response = "You've said nothing to me.";
         }
+        else if(findKeyword(statement, "who" )>=0){
+            response = "I think the cook might have killed her";
+        }
+        else if(findKeyword(statement, "Who killed")>=0){
+            response = transformWhoKilledStatement(statement);
+        }
         else if(findKeyword(statement, "Wendy")>=0){
             response = "I miss Wendy. Without her here the gardens have lost their color. *sigh*";
         }
@@ -41,14 +50,8 @@ public class Gardener implements Person {
             response = "The last time I saw Wendy she was very sick. I had asked her to come to the gardens but she couldn't."+"\n"+"So I" +
                     " bought her some flowers and placed them next to her bed.";
         }
-        else if(findKeyword(statement, "who" )>=0){
-            response = "I think the cook might have killed her";
-        }
         else if(findKeyword(statement, "murder")>=0){
             response = "You don't think I murdered her do you?";
-        }
-        else if(findKeyword(statement, "Who killed")>=0){
-            response = transformWhoKilledStatement(statement);
         }
         else if(findKeyword(statement, "murdered")>=0){
             response = "I would not murder the person that gave me my job.";

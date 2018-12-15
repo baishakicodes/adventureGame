@@ -20,7 +20,7 @@ public class Librarian implements Person {
         System.out.println(getGreeting());
         Scanner in = new Scanner(System.in);
 
-        while(!(statement.equals("Bye"))){
+        while(!(statement.toLowerCase().equals("bye"))){
             statement = in.nextLine();
             System.out.println(getResponse(statement));
         }

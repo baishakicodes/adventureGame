@@ -22,6 +22,7 @@ public class Kitchen extends plainRoom {
         System.out.println("You've entered the kitchen. You see the cook"+"\n"+
                 "cooking something. It looks like meat. Do you want to talk to her?"+"\n"+
                 "Type 1 for yes or 2 for no");
+        //this is so that the player can speak with the cook.
         String ans = in.nextLine();
         if(ans.equals("1")){
             cook.chatLoop(ans);

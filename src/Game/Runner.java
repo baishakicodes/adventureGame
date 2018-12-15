@@ -18,11 +18,23 @@ public class Runner {
     public static void main(String[] args) {
 	// write your code here
         //plainRoom[][] building = new plainRoom[5][5];
+
+        //create an estate that was 5 by 5. You could increase the width if you want a rich and large mansion. :)
         Estate estate = new Estate(5);
+
+        //Needed to fill the estate made in the previous line with plain rooms
         estate.fillEstate();
+
+        //needed the first room to always be the starting room
         estate.getEstate()[0][0]=new startingRoom(0,0);
+
+        //called the edit method to fill the estate with the kitchen, garden, library, and wendy's room in random locations
         estate.edit(estate.getEstate());
+
+        //created a new player
         player player1 = new player("FirstName", 0, 0);
+
+        //the player starts in the first room.
         estate.getEstate()[0][0].enterRoom(player1);
 
         //fill the building with normal rooms
@@ -48,6 +60,8 @@ public class Runner {
 
         //Setup player 1 and the input scanner
         //building[0][0].enterRoom(player1);
+
+
         Scanner in = new Scanner(System.in);
         while(gameOn)
         {

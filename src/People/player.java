@@ -23,6 +23,8 @@ public class player implements Person {
     public void setyLoc(int yLoc){
         this.yLoc = yLoc;
     }
+
+    //the location method is used for the print estate method in the Estate class.
     public String location(){
         return "[ x ]";
     }

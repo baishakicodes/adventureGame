@@ -82,7 +82,8 @@ public class Estate {
         return Estate;
     }
 
-    //
+    //this method prints the estate.
+    //the player is marked with an x
     public String printEstate(plainRoom[][] estate, player player){
         String str = "";
         for (int row = 0; row < estate.length; row++) {
@@ -98,6 +99,7 @@ public class Estate {
         }
         return str;
     }
+    //didn't really need this method... but it's supposed to add rooms to the estate
     public void addRoom(plainRoom room,  int row, int col){
         Estate[row][col]= room;
     }

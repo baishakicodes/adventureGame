@@ -22,7 +22,7 @@ public class Cook implements Person {
         System.out.println(getGreeting(ranGreet));
         Scanner in = new Scanner(System.in);
 
-        while(!(statement.equals("Bye"))){
+        while(!(statement.toLowerCase().equals("bye"))){
             statement = in.nextLine();
             System.out.println(getResponse(statement));
         }
